@@ -16,6 +16,11 @@ app.add_middleware(
 async def root():
     return {"message": "Hello, World!"}
 
+# dummy response 
+@app.get("/favicon.ico")
+async def favicon():
+    return {"message": "No favicon available"}
+
 def start_server():
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
 
